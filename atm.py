@@ -1,37 +1,35 @@
-class ATM():
-    def __init__(self, user, card, pin, balance):
-        self.user = user
+class Atm:
+    def __init__(self, card, pin):
         self.card = card
         self.pin = pin
-        self.balance = balance
 
-    def getUser(self):
-        return self.user
     
     def checkBalance(self):
-        return self.balance
-    
-    def login(self):
+         print("Your balance is 50000")
+
+    def withdrawal(self,amount):
+        new_amount = 50000 - amount
+        print("you have withdrawn amount "+str(amount) +". Your remaining balance is "+ str(new_amount))
+
+
+def main():
         cardVar = input("Please enter your card number: ")
+        pinVar = input("Please enter your PIN: ")
 
-        if cardVar == self.card:
-            pinVar = input("Please enter your PIN: ")
+        new_user =  Atm(cardVar ,pinVar)
             
-            if pinVar == self.pin:
-                print("Successfully logged in")
-                print("Current User: "+John.getUser())
-                print("Current Balance: "+John.checkBalance())
+        print("Choose your activity ")
+        print("1.Balance Enquriy   2.withdrawl")
+        activity = int(input("enter activity number :- "))
 
-            else:
-                print("Incorrect PIN")
-        
-        else:
-            print("Sorry, that card could not be located on our database")
-
-
-John = ATM("John", 123456, 1111, "$1000")
-
-John.login()
+        if (activity == 1):
+            new_user.check_balance()
+        elif (activity == 2):
+            amount = int(input("enter the amount:- "))
+            new_user.withdrawal(amount)
+  
+if __name__ == "__main__":
+    main()
 
 
 
